@@ -281,14 +281,18 @@ int main(){
     playData gui;
     moves movesLikeJagger;
     char yesAnd;  
-    int move;     
+    int move;
+    int movess = 0;     
     cout << "Tic-Tac-Toe\n";
     cout << "Controls: 1-9 only\n";
     gui.printBoard();
     while ("true")
     {
+        if (movess < 8)
+        {
         cout << "\nX's Turn: ";
         cin >> move;
+        movess++;
         system("cls");
             movesLikeJagger.runModAmbalanga(move);
             movesLikeJagger.runCheckWin();
@@ -321,6 +325,7 @@ int main(){
                     {   
                         cout << "\nO's Turn: ";
                         cin >> move;
+                        movess++;
                         system("cls");
                             movesLikeJagger.runModAsol(move);   
                             movesLikeJagger.runCheckWin();
@@ -353,11 +358,22 @@ int main(){
                         gui.printBoard();
                         break;
                     }  
+
+        }
+        else
+        {
+            cout << "\nDRAW\n";
+            system("pause");
+            movesLikeJagger.runReset();
+            movess = 0;
+            system("cls");
+            gui.printBoard();
+        }
     }
 }
 
 /*
-    This is my first ever Game to develop so don't mock it
+    This is my first ever Game to develop so don't mock it :>
     I wrote it without using ai or anything (well, cause' even if I use AI, I still can't fix it lol see below issue). 
     Issues: Duplicate moves trips the game
             If the other player already marked a box it overwrites the existing one
