@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
     int size = 5;    // alam nyo nato
-    int arr[size] = {10,20,30,40,50}; // basta array to
+    int arr[size] = {}; // basta array to
     int selection; // forda userinput
     while ("true") // iloop ng infinite kase why not, trip ko lang
     {
